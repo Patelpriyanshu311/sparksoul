@@ -35,11 +35,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <img src={logo} alt="Spark Soul Technologies" className="h-10 w-auto" />
-              <span className="font-bold text-xl">
+            <Link to="/" className="flex items-center gap-4 mb-6">
+              <img src={logo} alt="Spark Soul Technologies" className="h-14 w-auto drop-shadow-lg" />
+              <span className="font-bold text-2xl">
                 <span className="gradient-text">Spark Soul</span>
-                <span className="text-muted-foreground ml-1">Technologies</span>
+                <span className="text-muted-foreground ml-2">Technologies</span>
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mb-6">

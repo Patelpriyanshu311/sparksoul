@@ -23,11 +23,15 @@ const Header = () => {
       <nav className="container-custom">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <img src={logo} alt="Spark Soul Technologies" className="h-10 w-auto transition-transform group-hover:scale-105" />
-            <span className="font-bold text-xl hidden sm:block">
+          <Link to="/" className="flex items-center gap-4 group">
+            <img 
+              src={logo} 
+              alt="Spark Soul Technologies" 
+              className="h-14 w-auto transition-transform group-hover:scale-105 drop-shadow-lg" 
+            />
+            <span className="font-bold text-2xl hidden sm:block">
               <span className="gradient-text">Spark Soul</span>
-              <span className="text-muted-foreground ml-1">Technologies</span>
+              <span className="text-muted-foreground ml-2">Technologies</span>
             </span>
           </Link>
 
