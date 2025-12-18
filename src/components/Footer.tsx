@@ -106,10 +106,10 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {currentYear} Spark Soul Technologies. All rights reserved.
+            © {currentYear} Spark Soul. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
-             Powered by Spark Soul Technologies.
+             Powered by Spark Soul.
           </p>
         </div>
       </div>
