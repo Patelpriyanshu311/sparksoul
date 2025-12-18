@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Twitter, Github, Mail } from "lucide-react";
+import { Linkedin, Instagram, Facebook, Mail } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -12,9 +12,9 @@ const Footer = () => {
       { label: "Careers", href: "/contact" },
     ],
     services: [
-      { label: "AI Solutions", href: "/about" },
-      { label: "Custom Software", href: "/about" },
-      { label: "Consulting", href: "/about" },
+      { label: "AI Solutions", href: "/services" },
+      { label: "Custom Software", href: "/services" },
+      { label: "Consulting", href: "/services" },
     ],
     legal: [
       { label: "Privacy Policy", href: "#" },
@@ -23,10 +23,10 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Mail, href: "mailto:hello@sparksoul.tech", label: "Email" },
+    { icon: Linkedin, href: "https://www.linkedin.com/company/spark-soul/", label: "LinkedIn" },
+    { icon: Instagram, href: "https://www.instagram.com/sparksoul_technologies/", label: "Instagram" },
+    { icon: Facebook, href: "https://www.facebook.com/people/Sparksoul/61585440236499/", label: "Facebook" },
+    { icon: Mail, href: "mailto:info@sparksoul.in", label: "Email" },
   ];
 
   return (
@@ -52,6 +52,7 @@ const Footer = () => {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
+                  target="_blank"
                   className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-muted/80 transition-colors"
                 >
                   <social.icon size={18} />
@@ -109,7 +110,7 @@ const Footer = () => {
             © {currentYear} Spark Soul Technologies. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
-            Built with AI. Powered by innovation.
+             Powered by Spark Soul Technologies.
           </p>
         </div>
       </div>

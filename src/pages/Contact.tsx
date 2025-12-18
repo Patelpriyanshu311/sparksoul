@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Mail, Phone, MapPin, Send, MessageSquare, Calendar } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 const contactInfo = [
   {
@@ -14,18 +15,25 @@ const contactInfo = [
     value: "hello@sparksoul.tech",
     description: "We'll respond within 24 hours",
   },
-  {
-    icon: Phone,
-    title: "Call Us",
-    value: "+1 (555) 123-4567",
-    description: "Mon-Fri, 9am-6pm EST",
-  },
-  {
-    icon: MapPin,
-    title: "Visit Us",
-    value: "San Francisco, CA",
-    description: "By appointment only",
-  },
+ {
+  icon: Phone,
+  title: "Call Us",
+  value: [
+    "+1 (555) 123-4567",
+    "+91 98765 43210",
+  ],
+  description: "Mon–Fri, 9am–6pm",
+},
+{
+  icon: MapPin,
+  title: "Visit Us",
+  value: [
+    "Bengaluru, Karnataka, India",
+    "Ahmedabad, Gujarat, India",
+  ],
+  description: "By appointment only",
+},
+  
 ];
 
 const Contact = () => {
@@ -43,20 +51,38 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    
+  e.preventDefault();
+  setIsSubmitting(true);
+
+  try {
+    await emailjs.send(
+      "service_bifn65q",
+      "template_xjdzu5a",
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company,
+        message: formData.message,
+      },
+      "yLZYCEJiHmUEe7pD5"
+    );
+
     toast({
-      title: "Message sent!",
-      description: "We'll get back to you within 24 hours.",
+      title: "Message sent successfully!",
+      description: "We’ll contact you shortly.",
     });
-    
+
     setFormData({ name: "", email: "", company: "", message: "" });
+  } catch (err) {
+    toast({
+      title: "Failed to send",
+      description: "Please try again later.",
+      variant: "destructive",
+    });
+  } finally {
     setIsSubmitting(false);
-  };
+  }
+};
 
   return (
     <div className="min-h-screen bg-background">
@@ -181,31 +207,35 @@ const Contact = () => {
                 
                 <div className="space-y-6 mb-10">
                   {contactInfo.map((info) => (
-                    <div key={info.title} className="flex items-start gap-4 p-4 rounded-xl glass">
+                    <div
+                      key={info.title}
+                      className="flex items-start gap-4 p-4 rounded-xl glass"
+                    >
                       <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center shrink-0">
                         <info.icon className="w-6 h-6 text-primary" />
                       </div>
+
                       <div>
                         <h3 className="font-semibold text-foreground">{info.title}</h3>
-                        <p className="text-primary">{info.value}</p>
-                        <p className="text-sm text-muted-foreground">{info.description}</p>
+
+                        <div className="text-primary space-y-1">
+                          {Array.isArray(info.value) ? (
+                            info.value.map((val, index) => (
+                              <p key={index} className="leading-snug">
+                                {val}
+                              </p>
+                            ))
+                          ) : (
+                            <p className="leading-snug">{info.value}</p>
+                          )}
+                        </div>
+
+                        <p className="text-sm text-muted-foreground mt-1">
+                          {info.description}
+                        </p>
                       </div>
                     </div>
                   ))}
-                </div>
-
-                {/* Book a Call CTA */}
-                <div className="p-6 rounded-2xl glass bg-gradient-to-r from-primary/10 to-secondary/10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Calendar className="w-6 h-6 text-primary" />
-                    <h3 className="text-xl font-bold">Prefer a Call?</h3>
-                  </div>
-                  <p className="text-muted-foreground mb-4">
-                    Schedule a free 30-minute discovery call to discuss your needs.
-                  </p>
-                  <Button variant="outline" size="lg" className="w-full">
-                    Book a Free Consultation
-                  </Button>
                 </div>
               </div>
             </div>
