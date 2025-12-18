@@ -39,7 +39,6 @@ const Footer = () => {
               <img src={logo} alt="Spark Soul Technologies" className="h-14 w-auto drop-shadow-lg" />
               <span className="font-bold text-2xl">
                 <span className="gradient-text">Spark Soul</span>
-                <span className="text-muted-foreground ml-2">Technologies</span>
               </span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed max-w-sm mb-6">
