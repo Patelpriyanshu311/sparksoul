@@ -10,7 +10,7 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import NotFound from "./pages/NotFound";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const queryClient = new QueryClient();
 
