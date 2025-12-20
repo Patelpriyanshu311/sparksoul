@@ -12,15 +12,15 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    value: "hello@sparksoul.tech",
+    value: "info@sparksoul.in",
     description: "We'll respond within 24 hours",
   },
  {
   icon: Phone,
   title: "Call Us",
   value: [
-    "+1 (555) 123-4567",
-    "+91 98765 43210",
+    "+91 95588 22532",
+    "+91 97230 75359",
   ],
   description: "Mon–Fri, 9am–6pm",
 },
